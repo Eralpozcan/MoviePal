@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="container">
     <div class="row mt-5 mb-5">
       <div class="card mb-4">
@@ -20,7 +21,7 @@
 
               <p class="card-text mx-1 mb-1 mt-1">{{movieDetail.overview}}</p>
               <p class="card-text">
-                <small class="text-muted">Last updated 3 mins ago</small>
+                <small class="text-muted"></small>
               </p>
             </div>
           </div>
@@ -28,6 +29,10 @@
       </div>
     </div>
   </div>
+</div>
+
+
+
 </template>
 
 <script>
