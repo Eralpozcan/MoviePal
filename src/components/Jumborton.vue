@@ -1,8 +1,8 @@
 <template>
     <div class="mt-1 p-5 rounded text-center">
-      <div class="container py-2">
-        <h1 class="fst-italic">Movie Pal</h1>
-        <p class="mb-2 font-monospace">Discover yourself with movies.</p>
+      <div class="row py-2">
+        <h1 class="fst-italic text-detail">Movie Pal</h1>
+        <p class="mb-2 font-monospace text-detail">Discover yourself with movies.</p>
       </div>
   </div>
 </template>
@@ -13,7 +13,12 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.row {
+  background-image: url("../assets/jumbortonimage.jpg");
+}
+.text-detail{
+  color:silver;
+}
 
 </style>

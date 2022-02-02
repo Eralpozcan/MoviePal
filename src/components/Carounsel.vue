@@ -4,7 +4,7 @@
 
     <VueSlickCarousel v-bind="settings">
         <div v-for="(item,index) of topRatedMovies" :key="index">
-          <router-link :to="`/movie/detail/${item.id}`">
+          <router-link :to="`/detail/${item.id}`">
             <div class="card shadow-sm m-2 border-0" style="width: 25rem; min-height:60rem;">
               <img :src="imagePath + item.backdrop_path" class="rounded-3" alt="...">
               <span class="badge bg-warning text-dark">{{item.vote_average}}</span>

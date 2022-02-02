@@ -2,8 +2,6 @@
 <div>
   <NavBar />
   <AboutPage />
-
-
 </div>
 
 

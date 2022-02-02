@@ -8,6 +8,7 @@ export default new Vuex.Store({
   state: {
     topRatedMovies: [],
     moviesPopular:[],
+    movieDetail:[],
     language:"en",
 
   },
@@ -20,6 +21,10 @@ export default new Vuex.Store({
     },
     setTopRate(state,payload){
       state.topRatedMovies = payload
+    },
+    setMovieDetail(state,payload){
+      state.movieDetail == []
+      state.movieDetail = payload
     }
   },
   actions: {
@@ -31,10 +36,16 @@ export default new Vuex.Store({
     getPopular({state,commit}){
       axios.get(`${process.env.VUE_APP_API_URL}/3/movie/popular?api_key=${process.env.VUE_APP_API_KEY}&language=${state.language}`).then((response)=>{
         commit('setMoviesPopular',response.data.results)
-        console.log(response.data.results)
-        console.log("1")
       });
-    }
+    },
+    movieIdFetch({state,commit},movieId){
+      console.log("MovieID",movieId)
+      axios.get(`${process.env.VUE_APP_API_URL}/3/movie/${movieId}?api_key=${process.env.VUE_APP_API_KEY}&language=${state.language}`).then((response)=>{
+        commit('setMovieDetail',response.data)
+        console.log(response.data)
+        console.log("Detail")
+      });
+    },
   },
   getters:{
     getTopRatedMovies(state){
@@ -42,6 +53,9 @@ export default new Vuex.Store({
     },
     getPopularMovies(state){
       return state.moviesPopular
+    },
+    getMovieDetail(state){
+      return state.movieDetail
     }
 
   },
