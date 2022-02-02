@@ -7,7 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     topRatedMovies: [],
-    moviesNew:[],
+    moviesPopular:[],
     language:"en",
 
   },
@@ -15,8 +15,8 @@ export default new Vuex.Store({
     setLanguage(state,payload){
       state.language = payload;
     },
-    setMoviesNew(state,payload){
-      state.moviesNew = payload
+    setMoviesPopular(state,payload){
+      state.moviesPopular = payload
     },
     setTopRate(state,payload){
       state.topRatedMovies = payload
@@ -26,13 +26,11 @@ export default new Vuex.Store({
     getTopRate({state,commit}){
       axios.get(`${process.env.VUE_APP_API_URL}/3/movie/top_rated?api_key=${process.env.VUE_APP_API_KEY}&language=${state.language}`).then((response)=>{
         commit('setTopRate',response.data.results)
-        console.log(response.data.results)
-        console.log("1")
       });
     },
-    getLatest({state,commit}){
-      axios.get(`${process.env.VUE_APP_API_URL}/3/movie/latest?api_key=${process.env.VUE_APP_API_KEY}&language=${state.language}`).then((response)=>{
-        commit('setMoviesNew',response.data.results)
+    getPopular({state,commit}){
+      axios.get(`${process.env.VUE_APP_API_URL}/3/movie/popular?api_key=${process.env.VUE_APP_API_KEY}&language=${state.language}`).then((response)=>{
+        commit('setMoviesPopular',response.data.results)
         console.log(response.data.results)
         console.log("1")
       });
@@ -42,8 +40,8 @@ export default new Vuex.Store({
     getTopRatedMovies(state){
       return state.topRatedMovies
     },
-    getLatestMovies(state){
-      return state.moviesNew
+    getPopularMovies(state){
+      return state.moviesPopular
     }
 
   },
