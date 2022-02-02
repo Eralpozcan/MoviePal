@@ -30,8 +30,8 @@
             <i class="bi bi-translate"></i> 
           </a>
           <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Turkish</a></li>
-            <li><a class="dropdown-item" href="#">English</a></li>
+            <li><a class="dropdown-item" @click="changeLanguage('tr')">{{ $t("Turkish") }}</a></li>
+            <li><a class="dropdown-item" @click="changeLanguage('en')">English</a></li>
           </ul>
         </li>
       </ul>      
@@ -42,8 +42,15 @@
 </template>
 
 <script>
-export default {
 
+export default {
+  name:'Navbar',
+
+  methods:{
+    changeLanguage(val){
+      this.$store.commit('setLanguage',val)
+    },
+  }
 }
 </script>
 

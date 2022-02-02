@@ -4,7 +4,7 @@
 
     <VueSlickCarousel v-bind="settings">
         <div v-for="(item,index) of topRatedMovies" :key="index">
-          <router-link :to="`/detail/${item.id}`">
+          <router-link class="router" :to="`/detail/${item.id}`">
             <div class="card shadow-sm m-2 border-0" style="width: 25rem; min-height:60rem;">
               <img :src="imagePath + item.backdrop_path" class="rounded-3" alt="...">
               <span class="badge bg-warning text-dark">{{item.vote_average}}</span>
@@ -21,9 +21,9 @@
 
 
     <h3 class="mt-5 mb-5 mx-2"> Popular Movies</h3>
-    <VueSlickCarousel v-bind="settings">
+      <VueSlickCarousel v-bind="settings">
         <div v-for="(item,index) of moviesPopular" :key="index">
-          <router-link :to="`/movie/detail/${item.id}`">
+          <router-link class="router" :to="`/movie/detail/${item.id}`">
             <div class="card shadow-sm m-2 border-0" style="width: 25rem; min-height:60rem;">
               <img :src="imagePath + item.backdrop_path" class="rounded-3" alt="...">
               <span class="badge bg-warning text-dark">{{item.vote_average}}</span>
@@ -36,7 +36,7 @@
             </div>
           </router-link>
         </div>       
-    </VueSlickCarousel>    
+    </VueSlickCarousel>  
   </div>
 </template>
 
@@ -81,6 +81,7 @@ export default {
               slidesToShow: 3,
               slidesToScroll: 3,
               initialSlide: 3,
+              dots: true,
             },
           },
           {
@@ -88,6 +89,7 @@ export default {
             settings: {
               slidesToShow: 2,
               slidesToScroll: 2,
+              dots: true,
             },
           },
         ],
@@ -100,3 +102,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.router{
+  color:black;
+  text-decoration: none;
+}
+</style>

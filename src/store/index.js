@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from "axios";
+import i18n from "../i18n";
 
 Vue.use(Vuex)
 
@@ -11,11 +12,12 @@ export default new Vuex.Store({
     movieDetail:[],
     castDetail:[],
     language:"en",
-
   },
   mutations: {
     setLanguage(state,payload){
+      console.log("123")
       state.language = payload;
+      i18n.locale = state.language;
     },
     setMoviesPopular(state,payload){
       state.moviesPopular = payload

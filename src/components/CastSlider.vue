@@ -8,7 +8,7 @@
         <img
           :src="getImage(item.profile_path)"
           class="rounded-3"
-          alt="..."
+          alt="Picture"
         />
         <div class="card-body pt-4 ps-2 pe-2 pb-1">
           <h5 class="card-title text-truncate fw-bold">{{ item.name }}</h5>
@@ -67,6 +67,8 @@ export default {
               slidesToShow: 3,
               slidesToScroll: 3,
               initialSlide: 3,
+              infinite: true,
+              dots: true,
             },
           },
           {
@@ -74,6 +76,8 @@ export default {
             settings: {
               slidesToShow: 2,
               slidesToScroll: 2,
+              infinite: true,
+              dots: true,
             },
           },
         ],

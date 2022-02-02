@@ -6,7 +6,7 @@
 
 
     <div class="container mx-1 my-3">
-        <h3>Cast</h3>
+        <h3>{{ $t("Cast") }}</h3>
     </div>
 
     <CastSlider :castDetail="castDetail" />
@@ -48,7 +48,6 @@ export default {
     };
   },
   created(){
-      console.log(this.$route.params.id)
       this.movieIdFetch(this.$route.params.id)
       this.getCast(this.$route.params.id)
   }

@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import dotenv from 'dotenv'
+import i18n from "./i18n";
 
 dotenv.config()
 
@@ -17,5 +18,6 @@ new Vue({
   store,
   router,
   dotenv,
+  i18n,
   render: h => h(App)
 }).$mount('#app')
