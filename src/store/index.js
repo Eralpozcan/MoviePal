@@ -15,11 +15,8 @@ export default new Vuex.Store({
     setLanguage(state,payload){
       state.language = payload;
     },
-    setMovies(){
-
-    },
-    setMoviesNew(){
-
+    setMoviesNew(state,payload){
+      state.moviesNew = payload
     },
     setTopRate(state,payload){
       state.topRatedMovies = payload
@@ -33,15 +30,20 @@ export default new Vuex.Store({
         console.log("1")
       });
     },
-    getLatest(){
-
+    getLatest({state,commit}){
+      axios.get(`${process.env.VUE_APP_API_URL}/3/movie/latest?api_key=${process.env.VUE_APP_API_KEY}&language=${state.language}`).then((response)=>{
+        commit('setMoviesNew',response.data.results)
+        console.log(response.data.results)
+        console.log("1")
+      });
     }
   },
   getters:{
     getTopRatedMovies(state){
-      console.log("GETTER")
       return state.topRatedMovies
-    
+    },
+    getLatestMovies(state){
+      return state.moviesNew
     }
 
   },
