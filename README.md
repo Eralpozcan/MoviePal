@@ -28,6 +28,10 @@
 - [axios](https://axios-http.com/)
 - [Vue Slick Carousel](https://github.com/gs-shop/vue-slick-carousel)
 
+## Developer Tools
+- Husky
+- Commitlint
+- Eslint
 
 ## Author
 - [Linkedin](https://www.linkedin.com/in/eralpozcan/)
