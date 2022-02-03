@@ -1,44 +1,66 @@
 <template>
   <div class="row ps-1 pe-1">
-    <h3 class="mt-5 mb-5 mx-2"> {{ $t("TopRated") }}</h3>
+    <h3 class="mt-5 mb-5 mx-2">{{ $t("TopRated") }}</h3>
     <div v-if="topRatedMovies.length > 0">
       <VueSlickCarousel v-bind="settings">
-          <div v-for="(item,index) of topRatedMovies" :key="index">
-            <router-link class="router" :to="`/detail/${item.id}`">
-              <div class="card shadow-sm m-2 border-0" style="width: 25rem; min-height:60rem;">
-                <img :src="imagePath + item.backdrop_path" class="rounded-3" alt="...">
-                <span class="badge bg-warning text-dark">{{item.vote_average}}</span>
-                <div class="card-body pt-4 ps-2 pe-2 pb-1">
-                  <h5 class="card-title text-truncate fw-bold">{{item.title}}</h5>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <small class="text-muted">{{item.release_date}}</small>
-                  </div>
+        <div v-for="(item, index) of topRatedMovies" :key="index">
+          <router-link class="router" :to="`/detail/${item.id}`">
+            <div
+              class="card shadow-sm m-2 border-0"
+              style="width: 25rem; min-height: 60rem"
+            >
+              <img
+                :src="getImage(item.backdrop_path)"
+                class="rounded-3"
+                alt="..."
+              />
+              <span class="badge bg-warning text-dark">{{
+                item.vote_average
+              }}</span>
+              <div class="card-body pt-4 ps-2 pe-2 pb-1">
+                <h5 class="card-title text-truncate fw-bold">
+                  {{ item.title }}
+                </h5>
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-muted">{{ item.release_date }}</small>
                 </div>
               </div>
-            </router-link>
-          </div>       
+            </div>
+          </router-link>
+        </div>
       </VueSlickCarousel>
     </div>
 
     <h3 class="mt-5 mb-5 mx-2">{{ $t("PopulerMovies") }}</h3>
     <div v-if="moviesPopular.length > 0">
       <VueSlickCarousel v-bind="settings">
-        <div v-for="(item,index) of moviesPopular" :key="index">
+        <div v-for="(item, index) of moviesPopular" :key="index">
           <router-link class="router" :to="`/detail/${item.id}`">
-            <div class="card shadow-sm m-2 border-0" style="width: 25rem; min-height:60rem;">
-              <img :src="imagePath + item.backdrop_path" class="rounded-3" alt="...">
-              <span class="badge bg-warning text-dark">{{item.vote_average}}</span>
+            <div
+              class="card shadow-sm m-2 border-0"
+              style="width: 25rem; min-height: 60rem"
+            >
+              <img
+                :src="getImage(item.backdrop_path)"
+                class="rounded-3"
+                alt="..."
+              />
+              <span class="badge bg-warning text-dark">{{
+                item.vote_average
+              }}</span>
               <div class="card-body pt-4 ps-2 pe-2 pb-1">
-                <h5 class="card-title text-truncate fw-bold">{{item.title}}</h5>
+                <h5 class="card-title text-truncate fw-bold">
+                  {{ item.title }}
+                </h5>
                 <div class="d-flex justify-content-between align-items-center">
-                  <small class="text-muted">{{item.release_date}}</small>
+                  <small class="text-muted">{{ item.release_date }}</small>
                 </div>
               </div>
             </div>
           </router-link>
-        </div>       
+        </div>
       </VueSlickCarousel>
-    </div>  
+    </div>
   </div>
 </template>
 
@@ -46,22 +68,30 @@
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
-import {mapState,mapActions} from "vuex";
-
+import { mapState, mapActions } from "vuex";
 
 export default {
   name: "Carounsel",
   components: { VueSlickCarousel },
-  methods:{
-    ...mapActions(["getTopRate","getPopular"])
+  methods: {
+    ...mapActions(["getTopRate", "getPopular"]),
+    getImage: function (val) {
+      if (val !== null) {
+        let imagePath = process.env.VUE_APP_API_IMAGE_PATH;
+        let profileImage = val;
+        return imagePath + profileImage;
+      } else {
+        return "https://via.placeholder.com/500x750";
+      }
+    },
   },
-  computed:{
-    ...mapState(["topRatedMovies","moviesPopular"]),
+  computed: {
+    ...mapState(["topRatedMovies", "moviesPopular"]),
   },
-  watch:{
-      "$i18n.locale": function () {
-      this.getTopRate()
-      this.getPopular()
+  watch: {
+    "$i18n.locale": function () {
+      this.getTopRate();
+      this.getPopular();
     },
   },
   data() {
@@ -105,7 +135,7 @@ export default {
       },
     };
   },
-  created () {
+  created() {
     this.getTopRate();
     this.getPopular();
   },
@@ -113,11 +143,12 @@ export default {
 </script>
 
 <style>
-.router{
-  color:black;
+.router {
+  color: black;
   text-decoration: none;
 }
-.slick-prev:before, .slick-next:before {
-    color: #000000 !important;
+.slick-prev:before,
+.slick-next:before {
+  color: #000000 !important;
 }
 </style>
