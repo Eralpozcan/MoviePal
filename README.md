@@ -23,7 +23,7 @@
 - [Vuex](https://vuex.vuejs.org/)
 - [Vue Router](https://router.vuejs.org/)
 - [Vue i18n](https://kazupon.github.io/vue-i18n/)
-- [Bootstrap 5.6](https://getbootstrap.com/)
+- [Bootstrap 5.1](https://getbootstrap.com/)
 - [Bootstrap Icons](https://icons.getbootstrap.com/)
 - [axios](https://axios-http.com/)
 - [Vue Slick Carousel](https://github.com/gs-shop/vue-slick-carousel)
