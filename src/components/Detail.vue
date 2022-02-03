@@ -2,7 +2,7 @@
 <div>
   <div class="container">
     <div class="row mt-5 mb-5">
-      <div class="card mb-4">
+      <div class="card mb-4 border-0">
         <div class="row g-0">
           <div class="col-md-3 mt-1 mb-1 justify-content-center">
             <img

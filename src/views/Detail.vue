@@ -5,17 +5,16 @@
     <Detail :movieDetail="movieDetail"/>
 
 
-    <div class="container mx-1 my-3">
+    <div class="container">
         <h3>{{ $t("Cast") }}</h3>
+        <CastSlider :castDetail="castDetail" />
+
+        <h3 class="mt-5">Producer Team</h3>
+
+        <CrewSlider :castDetail="castDetail" />
     </div>
 
-    <CastSlider :castDetail="castDetail" />
-
-    <div class="container mx-1 mt-5">
-        <h3>Producer Team</h3>
-    </div>
-
-    <CrewSlider :castDetail="castDetail" />
+    <Footer />
   </div>
 </template>
 
@@ -25,6 +24,7 @@ import NavBar from '../components/NavBar.vue'
 import Detail from '../components/Detail.vue'
 import CastSlider from '../components/CastSlider.vue'
 import CrewSlider from '../components/CrewSlider.vue'
+import Footer from '../components/Footer.vue'
 import { mapActions,mapState } from "vuex";
 
 export default {
@@ -33,7 +33,8 @@ export default {
     NavBar,
     Detail,
     CastSlider,
-    CrewSlider
+    CrewSlider,
+    Footer
   },
   methods:{
     ...mapActions(['movieIdFetch','getCast'])

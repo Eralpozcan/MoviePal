@@ -1,24 +1,26 @@
 <template>
-  <VueSlickCarousel v-bind="settings">
-    <div v-for="(item, index) of castDetail.crew" :key="index">
-      <div
-        class="card shadow-sm m-2 border-0"
-        style="width: 25rem; min-height: 60rem"
-      >
-        <img
-          :src="getImage(item.profile_path)"
-          class="rounded-3"
-          alt="..."
-        />
-        <div class="card-body pt-4 ps-2 pe-2 pb-1">
-          <h5 class="card-title text-truncate fw-bold">{{ item.name }}</h5>
-          <div class="d-flex justify-content-between align-items-center">
-            <small class="text-muted">{{ item.job }}</small>
+  <div class="container" v-if="castDetail.crew.length > 0">
+    <VueSlickCarousel v-bind="settings">
+      <div v-for="(item, index) of castDetail.crew" :key="index">
+        <div
+          class="card shadow-sm m-2 border-0"
+          style="width: 25rem; min-height: 60rem"
+        >
+          <img
+            :src="getImage(item.profile_path)"
+            class="rounded-3"
+            alt="..."
+          />
+          <div class="card-body pt-4 ps-2 pe-2 pb-1">
+            <h5 class="card-title text-truncate fw-bold">{{ item.name }}</h5>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted">{{ item.job }}</small>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </VueSlickCarousel>
+    </VueSlickCarousel>
+  </div>
 </template>
 
 <script>

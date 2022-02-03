@@ -2,8 +2,10 @@
   <div class="home">
     <NavBar />
     <Jumbor />
-    <Carounsel />
-
+    <div class="container">
+      <Carounsel />
+    </div>
+    <Footer />
   </div>
 </template>
 
@@ -12,13 +14,15 @@
 import NavBar from '../components/NavBar.vue'
 import Jumbor from '../components/Jumborton.vue'
 import Carounsel from '../components/Carounsel.vue'
+import Footer from '../components/Footer.vue'
 
 export default {
   name: 'Home',
   components: {
     NavBar,
     Jumbor,
-    Carounsel
+    Carounsel,
+    Footer
   }
 }
 </script>
