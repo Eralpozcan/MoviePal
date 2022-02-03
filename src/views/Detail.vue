@@ -42,6 +42,12 @@ export default {
   computed:{
     ...mapState(['movieDetail','castDetail'])
   },
+  watch:{
+      "$i18n.locale": function () {
+      this.movieIdFetch(this.$route.params.id);
+      this.getCast(this.$route.params.id)
+    },
+  },
   data() {
     return {
       imagePath: process.env.VUE_APP_API_IMAGE_PATH,

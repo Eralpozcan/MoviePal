@@ -50,7 +50,7 @@ export default {
     changeLanguage(val){
       this.$store.commit('setLanguage',val)
     },
-  }
+  },
 }
 </script>
 

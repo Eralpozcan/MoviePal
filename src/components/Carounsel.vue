@@ -20,7 +20,7 @@
       </VueSlickCarousel>
     </div>
 
-    <h3 class="mt-5 mb-5 mx-2">{{ $t("PopularMovies") }}</h3>
+    <h3 class="mt-5 mb-5 mx-2">{{ $t("PopulerMovies") }}</h3>
     <div v-if="moviesPopular.length > 0">
       <VueSlickCarousel v-bind="settings">
         <div v-for="(item,index) of moviesPopular" :key="index">
@@ -57,6 +57,12 @@ export default {
   },
   computed:{
     ...mapState(["topRatedMovies","moviesPopular"]),
+  },
+  watch:{
+      "$i18n.locale": function () {
+      this.getTopRate()
+      this.getPopular()
+    },
   },
   data() {
     return {
