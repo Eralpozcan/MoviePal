@@ -1,4 +1,13 @@
 {
     "Cast": "Cast",
-    "Turkish":"Türkçe"
+    "Producer":"Producer Team",
+    "Turkish":"Türkçe",
+    "English":"English",
+    "TopRated":"Top Rated Movies",
+    "PopulerMovies":"Popular Movies",
+    "About":"About",
+    "Search":"Search",
+    "Register":"Register",
+    "Login":"Login",
+    "Discover":"Discover yourself with movies."
 }

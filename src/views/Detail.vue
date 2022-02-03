@@ -9,7 +9,7 @@
         <h3>{{ $t("Cast") }}</h3>
         <CastSlider :castDetail="castDetail" />
 
-        <h3 class="mt-5">Producer Team</h3>
+        <h3 class="mt-5">{{ $t("Producer") }}</h3>
 
         <CrewSlider :castDetail="castDetail" />
     </div>
@@ -42,7 +42,6 @@ export default {
   computed:{
     ...mapState(['movieDetail','castDetail'])
   },
-
   data() {
     return {
       imagePath: process.env.VUE_APP_API_IMAGE_PATH,

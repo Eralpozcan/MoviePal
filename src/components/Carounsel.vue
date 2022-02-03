@@ -1,6 +1,6 @@
 <template>
   <div class="row ps-1 pe-1">
-    <h3 class="mt-5 mb-5 mx-2"> Top Rated Movies</h3>
+    <h3 class="mt-5 mb-5 mx-2"> {{ $t("TopRated") }}</h3>
     <div v-if="topRatedMovies.length > 0">
       <VueSlickCarousel v-bind="settings">
           <div v-for="(item,index) of topRatedMovies" :key="index">
@@ -20,7 +20,7 @@
       </VueSlickCarousel>
     </div>
 
-    <h3 class="mt-5 mb-5 mx-2"> Popular Movies</h3>
+    <h3 class="mt-5 mb-5 mx-2">{{ $t("PopularMovies") }}</h3>
     <div v-if="moviesPopular.length > 0">
       <VueSlickCarousel v-bind="settings">
         <div v-for="(item,index) of moviesPopular" :key="index">

@@ -1,4 +1,12 @@
 {
     "Cast": "Oyuncular",
-    "Turkish":"Türkçe"
+    "Producer":"Yapım Ekibi",
+    "Turkish":"Türkçe",
+    "TopRated":"En Yüksek Oy Alan Filmler",
+    "PopulerMovies":"Popüler Filmler",
+    "About":"Hakkımızda",
+    "Search":"Arama",
+    "Register":"Kayıt Ol",
+    "Login":"Giriş Yap",
+    "Discover":"Kendinizi filmlerle keşfedin."
 }
