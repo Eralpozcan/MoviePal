@@ -15,7 +15,6 @@ export default new Vuex.Store({
   },
   mutations: {
     setLanguage(state,payload){
-      console.log("123")
       state.language = payload;
       i18n.locale = state.language;
     },
@@ -49,32 +48,17 @@ export default new Vuex.Store({
       console.log("MovieID",movieId)
       axios.get(`${process.env.VUE_APP_API_URL}/3/movie/${movieId}?api_key=${process.env.VUE_APP_API_KEY}&language=${state.language}`).then((response)=>{
         commit('setMovieDetail',response.data)
-        console.log(response.data)
-        console.log("Detail")
+
       });
     },
     getCast({state,commit},movieId){
       console.log('GetCast',movieId)
       axios.get(`${process.env.VUE_APP_API_URL}/3/movie/${movieId}/credits?api_key=${process.env.VUE_APP_API_KEY}&language=${state.language}`).then((response)=>{
         commit('setCastDetail',response.data)
-        console.log(response.data)
-        console.log("CastDetail")
       });
     }
   },
   getters:{
-    getTopRatedMovies(state){
-      return state.topRatedMovies
-    },
-    getPopularMovies(state){
-      return state.moviesPopular
-    },
-    getMovieDetail(state){
-      return state.movieDetail
-    },
-    getCastDetail(state){
-      return state.castDetail
-    }
 
   },
   modules: {
