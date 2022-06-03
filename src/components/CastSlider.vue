@@ -1,5 +1,5 @@
 <template>
-  <div class="container" v-if="castDetail.cast.length > 0">
+  <div class="container" v-if="castDetail.cast">
     <VueSlickCarousel v-bind="settings">
       <div v-for="(item, index) of castDetail.cast" :key="index">
         <div

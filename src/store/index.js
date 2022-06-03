@@ -45,14 +45,12 @@ export default new Vuex.Store({
       });
     },
     movieIdFetch({state,commit},movieId){
-      console.log("MovieID",movieId)
       axios.get(`${process.env.VUE_APP_API_URL}/3/movie/${movieId}?api_key=${process.env.VUE_APP_API_KEY}&language=${state.language}`).then((response)=>{
         commit('setMovieDetail',response.data)
 
       });
     },
     getCast({state,commit},movieId){
-      console.log('GetCast',movieId)
       axios.get(`${process.env.VUE_APP_API_URL}/3/movie/${movieId}/credits?api_key=${process.env.VUE_APP_API_KEY}&language=${state.language}`).then((response)=>{
         commit('setCastDetail',response.data)
       });

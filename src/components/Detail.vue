@@ -46,8 +46,7 @@ export default {
   },
   computed:{
     getDateYear : function(){
-      console.log(this.movieDetail.release_date)
-      if(this.movieDetail.release_date !== null) {
+      if(this.movieDetail.release_date) {
         let dateData = this.movieDetail.release_date
         let newdate = dateData.split('-')
         return '('+newdate[0]+')'
