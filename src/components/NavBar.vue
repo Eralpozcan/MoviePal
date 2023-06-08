@@ -59,9 +59,9 @@ watch(search, async (val) => {
             @change="Search()" v-model="search">
 
           <ul class="list-group" v-for="(item, index) in searchResult" v-if="searchResult.length > 1" :key="item.id">
-            <li class="list-group-item" v-if="index < 5">
+            <li class="list-group-item select-list" v-if="index < 5">
               <div class="col d-flex suggestion">
-                <img :src="ImagePath(item.poster_path)" alt="" width="50" height="50">
+                <img class="class-image" :src="ImagePath(item.poster_path)" alt="">
                 <ul @click="GoMoviesDetail(item.id)">{{ item.title }}</ul>
               </div>
             </li>
@@ -97,6 +97,16 @@ watch(search, async (val) => {
 </template>
 
 <style scoped>
+.class-image {
+  border-radius: 2%;
+  height: 3rem;
+}
+
+.select-list:hover {
+  cursor: pointer;
+  background-color: rgb(230, 228, 228);
+}
+
 .navbar-color {
   background-color: rgb(230, 228, 228) !important;
 }
