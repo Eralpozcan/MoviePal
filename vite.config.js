@@ -10,5 +10,8 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+  define: {
+    __APP_ENV__: process.env.VITE_VERCEL_ENV,
+  },
 })
