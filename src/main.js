@@ -1,23 +1,32 @@
-import Vue from 'vue'
-import App from './App.vue'
-import store from './store'
-import router from './router'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import "bootstrap-icons/font/bootstrap-icons.css";
-import dotenv from 'dotenv'
-import i18n from "./i18n";
+import en from '@/locale/en.json'
+import tr from '@/locale/tr.json'
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import { createI18n } from 'vue-i18n'
+import VueGtag from "vue-gtag";
 
-dotenv.config()
+import App from './App.vue'
+import router from './router'
 
-Vue.config.productionTip = false
+const i18n = createI18n({
+  legacy: false,
+  locale: 'en',
+  messages: {
+    en: en,
+    tr: tr,
+  },
+})
 
+const app = createApp(App)
 
+app.use(createPinia())
+app.use(router)
+app.use(i18n)
+app.use(VueGtag, {
+  config: { id: "G-F7ZQE4QT99" }
+});
 
-new Vue({
-  store,
-  router,
-  dotenv,
-  i18n,
-  render: h => h(App)
-}).$mount('#app')
+app.mount('#app')

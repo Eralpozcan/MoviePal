@@ -1,13 +1,16 @@
 {
     "Cast": "Oyuncular",
-    "Producer":"Yapım Ekibi",
-    "Turkish":"Türkçe",
-    "English":"English",
-    "TopRated":"En Yüksek Oy Alan Filmler",
-    "PopulerMovies":"Populer Filmler",
-    "About":"Hakkımızda",
-    "Search":"Arama",
-    "Register":"Kayıt Ol",
-    "Login":"Giriş Yap",
-    "Discover":"Kendinizi filmlerle keşfedin."
+    "Producer": "Yapım Ekibi",
+    "Turkish": "Türkçe",
+    "English": "English",
+    "TopRated": "En Yüksek Oy Alan Filmler",
+    "PopulerMovies": "Populer Filmler",
+    "About": "Hakkımızda",
+    "Search": "Arama",
+    "Register": "Kayıt Ol",
+    "Login": "Giriş Yap",
+    "Discover": "Kendinizi filmlerle keşfedin.",
+    "Recommendations": "Benzer Öneriler",
+    "SimilarMovies": "Benzer Filmler",
+    "UpComings": "Yakında Vizyona Girecekler"
 }

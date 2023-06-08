@@ -1,9 +1,20 @@
+<script setup>
+import { RouterView } from 'vue-router'
+import NavBar from '@/components/NavBar.vue'
+import Footer from '@/components/Footer.vue'
+
+</script>
+
 <template>
-  <router-view></router-view>
+  <NavBar />
+
+  <RouterView />
+
+  <Footer />
 </template>
 
-<style>
-#app{
-  background-color: silver;
+<style scoped>
+#app {
+  background-color: rgb(180, 179, 179);
 }
 </style>
