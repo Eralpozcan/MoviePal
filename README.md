@@ -2,6 +2,7 @@
 
 <p align="center"> Movie Pal Application </p>
 <h3 align="center">You can view the <a href="https://moviepal.vercel.app/"> live demo here</a>.</h3>
+
 <div align="center">
 <img src="https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D"></img>
 <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=FFD62E"></img>
@@ -11,10 +12,11 @@
 <img src="https://img.shields.io/badge/TMDB-000000?style=for-the-badge&logo=themoviedatabase&logoColor=2CBBD0"></img>
 <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white"></img>
 
-
-
+<img src="https://app.deepsource.com/gh/Eralpozcan/MoviePal.svg/?label=active+issues&show_trend=true&token=rM-0V8VXS2Oebuic8Q3ZWw2t)](https://app.deepsource.com/gh/Eralpozcan/MoviePal/?ref=repository-badge"></img>
+<img src="https://app.deepsource.com/gh/Eralpozcan/MoviePal.svg/?label=resolved+issues&show_trend=true&token=rM-0V8VXS2Oebuic8Q3ZWw2t)](https://app.deepsource.com/gh/Eralpozcan/MoviePal/?ref=repository-badge"></img>
 
 </div>
+
 
 ### 📔 **About**
 
