@@ -13,9 +13,9 @@ onMounted(() => {
 
 <template>
   <main>
-    <Jumbor />
+    <Jumbor></Jumbor>
     <div class="container">
-      <Home />
+      <Home></Home>
     </div>
   </main>
 </template>
