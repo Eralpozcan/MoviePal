@@ -30,7 +30,6 @@ export const useMovieStore = defineStore('movie', () => {
       countryData.value = country
     } catch (error) {
       console.log(error);
-      return null;
     }
   }
 
@@ -91,11 +90,9 @@ export const useMovieStore = defineStore('movie', () => {
   async function getMovieRecommendations(id) {
     try {
       const response = await axios.get(`${import.meta.env.VITE_VUE_APP_API_URL}/3/movie/${id}/recommendations?api_key=${import.meta.env.VITE_VUE_APP_API_KEY}&language=${language.value}`)
-      let bestRecommendations = response.data.results.filter((item) => item.vote_average > 7)
-      let sortedBestRecommendations = bestRecommendations.toSorted(function (a, b) {
-        return b.vote_average - a.vote_average;
-      });
-      recommendationsDetail.value = sortedBestRecommendations
+      const bestRecommendations = response.data.results.filter((item) => item.vote_average > 7);
+      const sortedBestRecommendations = bestRecommendations.sort((a, b) => b.vote_average - a.vote_average);
+      recommendationsDetail.value = sortedBestRecommendations;
     } catch (error) {
       console.error(error)
     }
@@ -104,11 +101,9 @@ export const useMovieStore = defineStore('movie', () => {
   async function getSimilarMovies(id) {
     try {
       const response = await axios.get(`${import.meta.env.VITE_VUE_APP_API_URL}/3/movie/${id}/similar?api_key=${import.meta.env.VITE_VUE_APP_API_KEY}&language=${language.value}`)
-      let bestSimilarMovies = response.data.results.filter((item) => item.vote_average > 5)
-      let sortedBestSimilarMovies = bestSimilarMovies.toSorted(function (a, b) {
-        return b.vote_average - a.vote_average;
-      });
-      similarMovies.value = sortedBestSimilarMovies
+      const bestSimilarMovies = response.data.results.filter((item) => item.vote_average > 5);
+      const sortedBestSimilarMovies = bestSimilarMovies.sort((a, b) => b.vote_average - a.vote_average);
+      similarMovies.value = sortedBestSimilarMovies;
     } catch (error) {
       console.error(error)
     }
@@ -118,9 +113,10 @@ export const useMovieStore = defineStore('movie', () => {
     try {
       const response = await axios.get(`${import.meta.env.VITE_VUE_APP_API_URL}/3/search/movie?query=${query}&language=${language.value}&api_key=${import.meta.env.VITE_VUE_APP_API_KEY}`)
       const sortedData = response.data.results.sort((a, b) => b.vote_average - a.vote_average);
-      return sortedData
+      if (sortedData) return sortedData
     } catch (error) {
       console.error(error)
+      return null
     }
   }
 

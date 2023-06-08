@@ -58,7 +58,7 @@ watch(search, async (val) => {
           <input class="form-control me-2 my-1" autocomplete="on" type="search" placeholder="Search" aria-label="Search"
             @change="Search()" v-model="search">
 
-          <ul class="list-group" v-if="searchResult.length > 1" v-for="(item, index) in searchResult" :key="item.id">
+          <ul class="list-group" v-for="(item, index) in searchResult" v-if="searchResult.length > 1" :key="item.id">
             <li class="list-group-item" v-if="index < 5">
               <div class="col d-flex suggestion">
                 <img :src="ImagePath(item.poster_path)" alt="" width="50" height="50">

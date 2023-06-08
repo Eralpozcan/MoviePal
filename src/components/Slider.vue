@@ -11,6 +11,7 @@ const router = useRouter()
 
 defineProps({
   sliderData: {
+    type: Object,
     required: true,
   },
   customFields: {
