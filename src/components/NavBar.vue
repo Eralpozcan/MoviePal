@@ -29,6 +29,10 @@ async function Search() {
   searchResult.value = await movieStore.getMovieSearch(search.value)
 }
 
+const checkout = () => {
+  throw new Error('Not implemented')
+}
+
 watch(search, async (val) => {
   if (val.length >= 3) {
     await Search()
@@ -73,7 +77,7 @@ watch(search, async (val) => {
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="bi bi-person"></i>
+              <i class="bi bi-person" @click="checkout()"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdownMenuLink">
               <li><a class="dropdown-item" href="#">{{ $t("Register") }}</a></li>
