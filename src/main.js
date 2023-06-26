@@ -13,6 +13,7 @@ import tr from '@/locale/tr.json'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import { createI18n } from 'vue-i18n'
+// skipcq: JS-C1003 - sentry does not expose itself as an ES Module.
 import * as Sentry from "@sentry/vue";
 import VueGtag from "vue-gtag";
 

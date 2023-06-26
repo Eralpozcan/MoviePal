@@ -2,6 +2,7 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { useI18n } from 'vue-i18n';
 import axios from 'axios';
+// skipcq: JS-C1003 - sentry does not expose itself as an ES Module.
 import * as Sentry from '@sentry/vue'
 
 export const useMovieStore = defineStore('movie', () => {

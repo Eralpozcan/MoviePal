@@ -12,8 +12,8 @@ defineProps({
 
 function getDateYear(date) {
   if (date) {
-    let dateData = date
-    let newdate = dateData.split('-')
+    const dateData = date
+    const newdate = dateData.split('-')
     return '(' + newdate[0] + ')'
   }
   return ''
