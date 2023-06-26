@@ -50,29 +50,29 @@ async function updateMovieDetail() {
 <template>
   <div class="detail">
     <Loading> </Loading>
-    <Detail :movieDetail="movieStore.movieDetail" />
+    <Detail :movieDetail="movieStore.movieDetail"></Detail>
 
     <div class="container">
       <template v-if="movieStore.recommendationsDetail.length > 1">
         <h3>{{ $t("Recommendations") }}</h3>
-        <Slider :sliderData="movieStore.recommendationsDetail" :customFields="recommendationsFields" />
+        <Slider :sliderData="movieStore.recommendationsDetail" :customFields="recommendationsFields"></Slider>
       </template>
 
       <template v-else>
         <h3>{{ $t("SimilarMovies") }}</h3>
 
-        <Slider :sliderData="movieStore.similarMovies" :customFields="recommendationsFields" />
+        <Slider :sliderData="movieStore.similarMovies" :customFields="recommendationsFields"></Slider>
       </template>
 
 
 
       <h3>{{ $t("Cast") }}</h3>
 
-      <Slider :sliderData="movieStore.creditsDetail.cast" :customFields="castFields" />
+      <Slider :sliderData="movieStore.creditsDetail.cast" :customFields="castFields"></Slider>
 
       <h3 class="mt-5">{{ $t("Producer") }}</h3>
 
-      <Slider :sliderData="movieStore.creditsDetail.crew" :customFields="crewFields" />
+      <Slider :sliderData="movieStore.creditsDetail.crew" :customFields="crewFields"></Slider>
     </div>
   </div>
 </template>
