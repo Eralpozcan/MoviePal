@@ -16,7 +16,7 @@ import { createI18n } from 'vue-i18n'
 // skipcq: JS-C1003 - sentry does not expose itself as an ES Module.
 import * as Sentry from "@sentry/vue";
 import VueGtag from "vue-gtag";
-
+import { inject } from '@vercel/analytics';
 import App from './App.vue'
 import router from './router'
 
@@ -50,7 +50,7 @@ Sentry.init({
   replaysOnErrorSampleRate: 0.5, // If you're not already sampling the entire session, change the sample rate to 100% when sampling sessions where errors occur.
   trackComponents: true,
 });
-
+inject();
 app.use(createPinia())
 app.use(router)
 app.use(i18n)
