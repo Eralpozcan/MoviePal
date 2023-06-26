@@ -2,6 +2,8 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { useI18n } from 'vue-i18n';
 import axios from 'axios';
+// skipcq: JS-C1003 - sentry does not expose itself as an ES Module.
+import * as Sentry from '@sentry/vue'
 
 export const useMovieStore = defineStore('movie', () => {
   const upComingsMovies = ref([])
@@ -30,15 +32,17 @@ export const useMovieStore = defineStore('movie', () => {
       countryData.value = country
     } catch (error) {
       console.log(error);
+      Sentry.captureException(error)
     }
   }
 
   async function getUpComingsMovies() {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_VUE_APP_API_URL}/3/movie/upcoming?api_key=${import.meta.env.VITE_VUE_APP_API_KEY}&language=${language.value}&page=1&region=${countryData.value}`)
+      const response = await axios.get(`${import.meta.env.VITE_VUE_APP_API_URL}/3/movie/upcoming?api_key=${import.meta.env.VITE_VUE_APP_API_KEY}&language=${language.value}&page=1`)
       upComingsMovies.value = response.data.results
     } catch (error) {
       console.error(error)
+      Sentry.captureException(error)
     }
   }
 
@@ -48,6 +52,7 @@ export const useMovieStore = defineStore('movie', () => {
       nowPlayingMovies.value = response.data.results
     } catch (error) {
       console.error(error)
+      Sentry.captureException(error)
     }
   }
 
@@ -57,6 +62,7 @@ export const useMovieStore = defineStore('movie', () => {
       topRatedMovies.value = response.data.results
     } catch (error) {
       console.error(error)
+      Sentry.captureException(error)
     }
   }
 
@@ -66,6 +72,7 @@ export const useMovieStore = defineStore('movie', () => {
       moviesPopular.value = response.data.results
     } catch (error) {
       console.error(error)
+      Sentry.captureException(error)
     }
   }
 
@@ -75,6 +82,7 @@ export const useMovieStore = defineStore('movie', () => {
       movieDetail.value = response.data
     } catch (error) {
       console.error(error)
+      Sentry.captureException(error)
     }
   }
 
@@ -84,6 +92,7 @@ export const useMovieStore = defineStore('movie', () => {
       creditsDetail.value = response.data
     } catch (error) {
       console.error(error)
+      Sentry.captureException(error)
     }
   }
 
@@ -95,6 +104,7 @@ export const useMovieStore = defineStore('movie', () => {
       recommendationsDetail.value = sortedBestRecommendations;
     } catch (error) {
       console.error(error)
+      Sentry.captureException(error)
     }
   }
 
@@ -106,6 +116,7 @@ export const useMovieStore = defineStore('movie', () => {
       similarMovies.value = sortedBestSimilarMovies;
     } catch (error) {
       console.error(error)
+      Sentry.captureException(error)
     }
   }
 
@@ -116,6 +127,7 @@ export const useMovieStore = defineStore('movie', () => {
       if (sortedData) return sortedData
     } catch (error) {
       console.error(error)
+      Sentry.captureException(error)
       return null
     }
   }

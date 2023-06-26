@@ -1,18 +1,16 @@
 <script setup>
-import { UseImage } from '@vueuse/components'
-import { Carousel, Navigation, Slide } from 'vue3-carousel'
-import 'vue3-carousel/dist/carousel.css'
 import { ImagePath } from '@/utils/index.js';
 import { useRouter } from 'vue-router'
+import { Mousewheel, Navigation, Autoplay, Parallax, A11y } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/vue';
 
-
+const SwiperModules = [Navigation, Mousewheel, Autoplay, Parallax, A11y];
 const router = useRouter()
-
 
 defineProps({
   sliderData: {
     type: Object,
-    required: true,
+    default: () => ({}),
   },
   customFields: {
     type: Object,
@@ -20,62 +18,41 @@ defineProps({
   },
 })
 
-const settings = {
-  itemsToShow: 4,
-  snapAlign: 'center',
-}
-
 function moviesDetailGo(id, click) {
   if (click) {
     router.push({ name: 'Detail', params: { id: id } })
   } else return
 }
-
-
 </script>
 
 <template>
   <div class="container" v-if="sliderData">
-    <Carousel v-bind="settings">
-      <Slide v-for="item in sliderData" :key="item">
+    <Swiper :modules="SwiperModules" :slides-per-view="3" :space-between="40" :navigation="true" :mousewheel="true"
+      :autoHeight="true" :parallax="true" :lazy="true">
+      <SwiperSlide v-for="item in sliderData" :key="item">
         <div class="carousel__item">
           <div class="card border-0" @click="moviesDetailGo(item.id, customFields.clickable)">
-            <UseImage v-if="customFields.imagePath" :src="ImagePath(item[customFields.imagePath])" class="rounded-3"
-              alt="Picture">
-              <template #loading>
-                Loading..
-              </template>
-
-              <template #error>
-                Failed
-              </template>
-            </UseImage>
-
+            <img v-if="customFields.imagePath" loading="lazy" :src="ImagePath(item[customFields.imagePath])"
+              class="rounded-3" alt="Picture">
+            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
             <div class="card-itemc cast-slider">
               <h5 class="card-title text-truncate fw-bold" v-if="customFields.title">{{ item[customFields.title] }}</h5>
               <div class="d-flex justify-content-between align-items-center">
                 <small class="text-muted" v-if="customFields.profession">{{ item[customFields.profession] }}</small>
                 <span class="badge bg-warning mx-1" v-if="customFields.vote">{{ Number(item[customFields.vote]).toFixed(2)
-                }}</span>
+                }}
+                </span>
 
               </div>
             </div>
           </div>
         </div>
-      </Slide>
-
-      <template #addons>
-        <Navigation />
-      </template>
-    </Carousel>
+      </SwiperSlide>
+    </Swiper>
   </div>
 </template>
 
 <style scoped>
-.carousel__item {
-  width: 70%;
-}
-
 .cast-slider {
   display: flex;
   flex-wrap: wrap;

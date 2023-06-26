@@ -12,8 +12,8 @@ defineProps({
 
 function getDateYear(date) {
   if (date) {
-    let dateData = date
-    let newdate = dateData.split('-')
+    const dateData = date
+    const newdate = dateData.split('-')
     return '(' + newdate[0] + ')'
   }
   return ''
@@ -26,7 +26,7 @@ function getDateYear(date) {
       <div class="card mb-4 border-0">
         <div class="row g-0">
           <div class="col-md-3 mt-1 mb-1 justify-content-center">
-            <img :src="ImagePath(movieDetail.poster_path)" class="img-fluid rounded" alt="..." />
+            <img :src="ImagePath(movieDetail.poster_path)" class="img-fluid rounded" alt="..." loading="lazy" />
           </div>
           <div class="col-md-8">
             <div class="card-body">
