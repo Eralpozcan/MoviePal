@@ -50,7 +50,7 @@ This project aims to create a system inspired by [IMDB](https://www.imdb.com) fo
 - [Vue3](https://vuejs.org/)
 - [Vue-Router](https://router.vuejs.org/)
 - [Vue i18n](https://vue-i18n.intlify.dev/)
-- [Vue3-Carousel](https://ismail9k.github.io/vue3-carousel/)
+- [Swiper](https://swiperjs.com/)
 
 
 ### #️⃣ **Commands**

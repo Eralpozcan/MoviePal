@@ -3,7 +3,6 @@ import { ref, watch } from "vue";
 import { useMovieStore } from '@/stores/index'
 import { useRouter } from 'vue-router'
 import { ImagePath } from '@/utils/index'
-import * as Sentry from '@sentry/vue'
 
 
 const router = useRouter()
