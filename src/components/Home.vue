@@ -17,11 +17,11 @@ onMounted(() => {
 <template>
   <div class="row ps-1 pe-1">
     <h3 class="mt-5 mb-5 mx-2">{{ $t("UpComings") }}</h3>
-    <CarouselComponent :data="movieStore.upComingsMovies" />
+    <CarouselComponent :data="movieStore.upComingsMovies"></CarouselComponent>
     <h3 class="mt-5 mb-5 mx-2">{{ $t("TopRated") }}</h3>
-    <CarouselComponent :data="movieStore.topRatedMovies" />
+    <CarouselComponent :data="movieStore.topRatedMovies"></CarouselComponent>
     <h3 class="mt-5 mb-5 mx-2">{{ $t("PopulerMovies") }}</h3>
-    <CarouselComponent :data="movieStore.moviesPopular" />
+    <CarouselComponent :data="movieStore.moviesPopular"></CarouselComponent>
 
   </div>
 </template>
