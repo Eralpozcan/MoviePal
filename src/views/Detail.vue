@@ -36,10 +36,10 @@ watch(() => route.params, () => {
   updateMovieDetail()
 })
 
-function updateMovieDetail() {
+async function updateMovieDetail() {
   movieStore.getMovieDetail(route.params.id)
   movieStore.getCreditsDetail(route.params.id)
-  movieStore.getMovieRecommendations(route.params.id)
+  await movieStore.getMovieRecommendations(route.params.id)
   if (movieStore.recommendationsDetail.length < 1) {
     movieStore.getSimilarMovies(route.params.id)
   }

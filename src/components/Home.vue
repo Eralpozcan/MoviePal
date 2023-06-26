@@ -6,9 +6,10 @@ import CarouselComponent from '@/components/Carounsel.vue'
 const movieStore = useMovieStore()
 
 onMounted(() => {
+  movieStore.getUpComingsMovies()
   movieStore.getTopRatedMovies()
   movieStore.getPopularMovies()
-  movieStore.getUpComingsMovies()
+
 })
 </script>
 
@@ -18,9 +19,9 @@ onMounted(() => {
     <h3 class="mt-5 mb-5 mx-2">{{ $t("UpComings") }}</h3>
     <CarouselComponent :data="movieStore.upComingsMovies" />
     <h3 class="mt-5 mb-5 mx-2">{{ $t("TopRated") }}</h3>
-    <CarouselComponent :data="movieStore.topRatedMovies" :pagination="true" />
+    <CarouselComponent :data="movieStore.topRatedMovies" />
     <h3 class="mt-5 mb-5 mx-2">{{ $t("PopulerMovies") }}</h3>
-    <CarouselComponent :data="movieStore.moviesPopular" :pagination="true" />
+    <CarouselComponent :data="movieStore.moviesPopular" />
 
   </div>
 </template>

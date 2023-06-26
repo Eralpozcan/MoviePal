@@ -1,11 +1,11 @@
 <script setup>
-import { onMounted } from 'vue'
+import { onBeforeMount } from 'vue'
 import Jumbor from '@/components/Jumborton.vue'
 import Home from '@/components/Home.vue'
 import { useMovieStore } from '@/stores/index'
 const movieStore = useMovieStore()
 
-onMounted(() => {
+onBeforeMount(() => {
   movieStore.getCountryFromIP()
 })
 

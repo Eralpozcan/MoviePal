@@ -3,6 +3,7 @@ import { ref, watch } from "vue";
 import { useMovieStore } from '@/stores/index'
 import { useRouter } from 'vue-router'
 import { ImagePath } from '@/utils/index'
+import * as Sentry from '@sentry/vue'
 
 
 const router = useRouter()
@@ -27,10 +28,6 @@ function ClearSearch() {
 }
 async function Search() {
   searchResult.value = await movieStore.getMovieSearch(search.value)
-}
-
-const checkout = () => {
-  throw new Error('Not implemented')
 }
 
 watch(search, async (val) => {
@@ -77,7 +74,7 @@ watch(search, async (val) => {
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="bi bi-person" @click="checkout()"></i>
+              <i class="bi bi-person"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdownMenuLink">
               <li><a class="dropdown-item" href="#">{{ $t("Register") }}</a></li>

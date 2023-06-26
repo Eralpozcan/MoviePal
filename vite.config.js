@@ -13,5 +13,6 @@ export default defineConfig({
   },
   define: {
     __APP_ENV__: process.env.VITE_VERCEL_ENV,
+    APP_VERSION: JSON.stringify(process.env.npm_package_version),
   },
 })
