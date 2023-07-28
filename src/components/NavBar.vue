@@ -15,7 +15,7 @@ function changeLanguage(val) {
   movieStore.setLanguage(val)
 }
 function GoMoviesDetail(id) {
-  router.push({ name: 'Detail', params: { id: id } })
+  router.push({ name: 'Detail', params: { id } })
   setTimeout(() => {
     ClearSearch()
   }, 1000)
