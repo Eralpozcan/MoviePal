@@ -12,12 +12,12 @@ defineProps({
 
 function getDateYear(date) {
   if (date) {
-    const dateData = date
-    const newdate = dateData.split('-')
-    return '(' + newdate[0] + ')'
+    const newdate = date.split('-')[0];
+    return `(${newdate})`;
   }
-  return ''
+  return '';
 }
+
 </script>
 
 <template>

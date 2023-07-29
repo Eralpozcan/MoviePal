@@ -34,7 +34,7 @@ const app = createApp(App)
 Sentry.init({
   app,
   dsn: import.meta.env.VITE_VUE_APP_SENTRY_DSN,
-  release: "MoviePal@" + APP_VERSION,
+  release: `MoviePal@${APP_VERSION}`,
   integrations: [
     new Sentry.BrowserTracing({
       // Set `tracePropagationTargets` to control for which URLs distributed tracing should be enabled
@@ -50,7 +50,9 @@ Sentry.init({
   replaysOnErrorSampleRate: import.meta.env.VITE_VUE_APP_SENTRY_ON_ERROR_SAMPLE_RATE, // If you're not already sampling the entire session, change the sample rate to 100% when sampling sessions where errors occur.
   trackComponents: true,
 });
+
 inject();
+
 app.use(createPinia())
 app.use(router)
 app.use(i18n)
